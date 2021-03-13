@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: keinyaupipelinesjavascriptdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keinyaupipelinesjavascriptdocker
+  template:
+    metadata:
+      labels:
+        app: keinyaupipelinesjavascriptdocker 
+    spec:
+      containers:
+        - name: keinyaupipelinesjavascriptdocker 
+          image: kycontainerregistry.azurecr.io/keinyaupipelinesjavascriptdocker
+          ports:
+          - containerPort: 8080
