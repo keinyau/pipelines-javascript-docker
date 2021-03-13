@@ -31,7 +31,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: $(vmImageName)
+      vmImage: Default
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
@@ -55,7 +55,7 @@ stages:
     condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
     displayName: Deploy
     pool:
-      vmImage: $(vmImageName)
+      vmImage: Default
     environment: 'keinyaupipelinesjavascriptdocker-1387.default'
     strategy:
       runOnce:
